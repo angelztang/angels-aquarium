@@ -162,19 +162,6 @@ export function ContactSection({ isDayMode }: ContactSectionProps) {
           I'll try my best to get back to you!
         </p>
       </motion.div>
-
-      {/* Instructions */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className={`mt-12 p-6 rounded-2xl backdrop-blur-md ${
-          isDayMode
-            ? 'bg-cyan-100/50 text-slate-700 border border-cyan-300'
-            : 'bg-slate-800/50 text-cyan-200 border border-cyan-700/30'
-        }`}
-      >
-      </motion.div>
     </div>
   );
 }
