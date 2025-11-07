@@ -80,38 +80,6 @@ export function ProjectsSection({ isDayMode }: ProjectsSectionProps) {
           />
         ))}
       </div>
-
-      {/* Instructions for Adding More Projects */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className={`mt-12 p-6 rounded-2xl backdrop-blur-md ${
-          isDayMode
-            ? 'bg-cyan-100/50 text-slate-700 border border-cyan-300'
-            : 'bg-slate-800/50 text-cyan-200 border border-cyan-700/30'
-        }`}
-      >
-        <h4 className={`mb-2 ${isDayMode ? 'text-slate-800' : 'text-cyan-100'}`}>
-          💡 How to Add More Projects
-        </h4>
-        <p className="text-sm">
-          1. Open <code className={`px-2 py-1 rounded ${isDayMode ? 'bg-slate-200' : 'bg-slate-700'}`}>
-            /components/sections/ProjectsSection.tsx
-          </code>
-        </p>
-        <p className="text-sm mt-2">
-          2. Find the <code className={`px-2 py-1 rounded ${isDayMode ? 'bg-slate-200' : 'bg-slate-700'}`}>
-            projects
-          </code> array and duplicate an existing project object
-        </p>
-        <p className="text-sm mt-2">
-          3. Fill in your project details following the TODO comments
-        </p>
-        <p className="text-sm mt-2">
-          4. Save and your new project will automatically appear in the grid!
-        </p>
-      </motion.div>
     </div>
   );
 }

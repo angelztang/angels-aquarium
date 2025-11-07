@@ -139,19 +139,6 @@ export function ContactSection({ isDayMode }: ContactSectionProps) {
             : 'bg-gradient-to-br from-slate-900/70 to-blue-900/70'
         }`}
       >
-        <motion.div
-          className="text-6xl mb-4"
-          animate={{
-            y: [0, -10, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          🌊
-        </motion.div>
         <h3 className={`mb-3 ${isDayMode ? 'text-slate-800' : 'text-cyan-100'}`}>
           Open to Opportunities
         </h3>

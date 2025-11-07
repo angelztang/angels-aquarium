@@ -126,8 +126,21 @@
 
   body {
     @apply bg-background text-foreground;
+    /* Use Times New Roman as the default document font per user request */
+    font-family: 'Times New Roman', Times, serif;
   }
 }
+
+/* Load Baby Gemoy from public/fonts (user provided) */
+@font-face {
+  font-family: 'Baby Gemoy';
+  /* encode the space in the filename for compatibility */
+  src: url('/fonts/baby-gemoy/Baby%20Gemoy.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 /**
  * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
@@ -190,24 +203,25 @@ html {
 
 /* Aquarium heading styles */
 .aquarium-title {
-  font-family: 'Pacifico', cursive;
+  /* Use Baby Gemoy for aquarium title if available */
+  font-family: 'Baby Gemoy', 'Times New Roman', Times, serif;
   font-size: 3rem; /* fallback for very large headings */
   line-height: 1;
   letter-spacing: 0.5px;
 }
 
 .aquarium-subtitle {
-  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 1.125rem; /* slightly larger than body */
   color: rgba(148, 250, 255, 0.85);
 }
 
 /* Utility font classes requested by user */
 .font-bubble {
-  /* Use Sniglet for the heading to get the playful aquarium look */
-  font-family: 'Sniglet', 'Fredoka', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  /* Use Baby Gemoy when available */
+  font-family: 'Baby Gemoy', 'Times New Roman', Times, serif;
 }
 
 .font-sub {
-  font-family: 'Quicksand', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }

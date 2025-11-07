@@ -4,6 +4,7 @@ import { RealisticFishTank } from './RealisticFishTank';
 import { AquariumDecor } from './AquariumDecor';
 import { BottomCrab } from './BottomCrab';
 import type { SectionType } from '../App';
+import ChatbotJellyfish from './ChatbotJellyfish';
 
 
 
@@ -101,27 +102,29 @@ export function FishbowlView({ onJellyfishClick }: FishbowlViewProps) {
     mb-4 
     text-cyan-100 
     text-6xl md:text-8xl 
-    font-bubble 
     font-bold 
     tracking-wider 
     leading-tight
   "
+  style={{ fontFamily: `Sniglet, "Baby Gemoy", Fredoka, Quicksand, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial` }}
 >
   Welcome to Angel's Aquarium Portfolio
 </h1>
 
-<p
-  className="
-    text-cyan-300/80 
-    mt-3 
-    text-lg md:text-2xl 
-    font-sub 
-    font-medium 
-    tracking-wide
-  "
->
-  Click on the jellyfish to explore each section
-</p>
+          <p
+            className="
+              text-cyan-300/80 
+              mt-20 
+              text-lg md:text-2xl 
+              font-sub 
+              font-medium 
+              tracking-wide
+            "
+          >
+            <span style={{ fontFamily: 'Alef, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial', fontWeight: 400 }}>
+              Click on the jellyfish to explore each section
+            </span>
+          </p>
         </motion.div>
       </div>
 
@@ -161,6 +164,9 @@ export function FishbowlView({ onJellyfishClick }: FishbowlViewProps) {
         {/* Bottom Crab */}
         <BottomCrab />
       </RealisticFishTank>
+
+      {/* Out-of-tank chatbot jellyfish */}
+      <ChatbotJellyfish />
     </motion.div>
   );
 }

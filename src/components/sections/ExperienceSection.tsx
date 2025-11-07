@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'motion/react';
 import { Briefcase, Calendar } from 'lucide-react';
 
@@ -10,7 +11,8 @@ interface Experience {
   company: string;
   role: string;
   duration: string;
-  description: string;
+  // allow JSX so descriptions can be bullets or rich content
+  description: React.ReactNode;
   color: string;
 }
 
@@ -23,7 +25,13 @@ export function ExperienceSection({ isDayMode }: ExperienceSectionProps) {
       company: "Niantic Spatial Inc.", // TODO: PASTE_COMPANY_HERE
       role: "Software Engineering Intern", // TODO: PASTE_ROLE_HERE
       duration: "May 2025 - August 2025", // TODO: PASTE_DURATION_HERE
-      description: "Describe your key responsibilities and achievements. What technologies did you work with? What impact did you make? Include metrics if possible.", // TODO: PASTE_DESCRIPTION_HERE
+      description: (
+        <ul className="list-disc pl-5 space-y-3">
+          <li>Developing a standalone macOS application using Unity to enable localization debugging and interactive visualization of Virtual Positioning System (VPS) data, integrating dynamic graphs and file selection tools.</li>
+          <li>Engineered a VPS debugging backend featuring multi-source data collection with frame-accurate correlation and JSON logging; implemented real-time statistical analysis including median-based outlier detection, efficient spatial binning, and time-series visualization to support live monitoring and historical playback for robust AR diagnostics.</li>
+          <li>Built a location-aware ambient music app during a company hackathon that streamed AI-generated music through Meta Ray-Bans based on user surroundings; led geospatial web scraping and Esri data integration to infer landmarks and atmosphere, contributing to a prototype under productization.</li>
+        </ul>
+      ), // TODO: PASTE_DESCRIPTION_HERE
       color: "#FF6B9D",
     },
     {
@@ -31,7 +39,12 @@ export function ExperienceSection({ isDayMode }: ExperienceSectionProps) {
       company: "Code.org", // TODO: PASTE_COMPANY_HERE
       role: "Elementary Coding Curriculum Support Intern", // TODO: PASTE_ROLE_HERE
       duration: "May 2024 - June 2024", // TODO: PASTE_DURATION_HERE
-      description: "Highlight your accomplishments and the skills you developed. What projects did you contribute to? What did you learn?", // TODO: PASTE_DESCRIPTION_HERE
+      description: (
+        <ul className="list-disc pl-5 space-y-3">
+          <li>Documented the functional specifications and characteristics of 150 coding blocks, ensuring comprehensive coverage; invested ~60 hours in developing, testing, refining, and integrating the documentation.</li>
+          <li>Enhanced CSS to ensure precise linkage of each coding block to its documentation page, leveraging advanced CSS/HTML techniques to seamlessly integrate documentation with the existing codebase.</li>
+        </ul>
+      ), // TODO: PASTE_DESCRIPTION_HERE
       color: "#4ECDC4",
     },
   ];
@@ -130,46 +143,14 @@ export function ExperienceSection({ isDayMode }: ExperienceSectionProps) {
                 </div>
 
                 {/* Description */}
-                <p className={isDayMode ? 'text-slate-700' : 'text-cyan-200/90'}>
+                <div className={`${isDayMode ? 'text-slate-700' : 'text-cyan-200/90'} break-words`}>
                   {exp.description}
-                </p>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
-
-      {/* Instructions */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className={`mt-12 p-6 rounded-2xl backdrop-blur-md ${
-          isDayMode
-            ? 'bg-cyan-100/50 text-slate-700 border border-cyan-300'
-            : 'bg-slate-800/50 text-cyan-200 border border-cyan-700/30'
-        }`}
-      >
-        <h4 className={`mb-2 ${isDayMode ? 'text-slate-800' : 'text-cyan-100'}`}>
-          💡 How to Update Your Experience
-        </h4>
-        <p className="text-sm">
-          1. Open <code className={`px-2 py-1 rounded ${isDayMode ? 'bg-slate-200' : 'bg-slate-700'}`}>
-            /components/sections/ExperienceSection.tsx
-          </code>
-        </p>
-        <p className="text-sm mt-2">
-          2. Find the <code className={`px-2 py-1 rounded ${isDayMode ? 'bg-slate-200' : 'bg-slate-700'}`}>
-            experiences
-          </code> array
-        </p>
-        <p className="text-sm mt-2">
-          3. Replace the placeholder data with your actual work experience
-        </p>
-        <p className="text-sm mt-2">
-          4. Follow the TODO comments to add company names, roles, and descriptions
-        </p>
-      </motion.div>
     </div>
   );
 }

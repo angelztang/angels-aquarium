@@ -19,13 +19,13 @@ export function SkillsSection({ isDayMode }: SkillsSectionProps) {
     {
       title: "Languages",
       icon: <Code className="w-6 h-6" />,
-      skills: [
-        "JavaScript", // TODO: ADD_YOUR_LANGUAGES
-        "TypeScript",
+      skills: [ // TODO: ADD_YOUR_LANGUAGES
         "Python",
         "Java",
         "C++",
-        "SQL",
+        "C#",
+        "C",
+        "JavaScript",
         "HTML/CSS",
       ],
       color: "#FF6B9D",
@@ -36,11 +36,6 @@ export function SkillsSection({ isDayMode }: SkillsSectionProps) {
       skills: [
         "React", // TODO: ADD_YOUR_FRAMEWORKS
         "Next.js",
-        "Node.js",
-        "Express",
-        "Django",
-        "TailwindCSS",
-        "Redux",
       ],
       color: "#4ECDC4",
     },
@@ -49,12 +44,9 @@ export function SkillsSection({ isDayMode }: SkillsSectionProps) {
       icon: <Wrench className="w-6 h-6" />,
       skills: [
         "Git", // TODO: ADD_YOUR_TOOLS
-        "Docker",
-        "AWS",
-        "MongoDB",
-        "PostgreSQL",
-        "Firebase",
         "Figma",
+        "Unity",
+        "Esri ArcGIS",
       ],
       color: "#FFE66D",
     },
@@ -77,9 +69,6 @@ export function SkillsSection({ isDayMode }: SkillsSectionProps) {
             ? 'bg-gradient-to-r from-cyan-400 to-blue-500'
             : 'bg-gradient-to-r from-cyan-500 to-blue-600'
         }`} />
-        <p className={`mt-4 ${isDayMode ? 'text-slate-600' : 'text-cyan-300/80'}`}>
-          Master your skills and technologies! 💻
-        </p>
       </motion.div>
 
       {/* Skills Grid */}
@@ -149,41 +138,6 @@ export function SkillsSection({ isDayMode }: SkillsSectionProps) {
           </motion.div>
         ))}
       </div>
-
-      {/* Instructions */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className={`mt-12 p-6 rounded-2xl backdrop-blur-md ${
-          isDayMode
-            ? 'bg-cyan-100/50 text-slate-700 border border-cyan-300'
-            : 'bg-slate-800/50 text-cyan-200 border border-cyan-700/30'
-        }`}
-      >
-        <h4 className={`mb-2 ${isDayMode ? 'text-slate-800' : 'text-cyan-100'}`}>
-          💡 How to Update Your Skills
-        </h4>
-        <p className="text-sm">
-          1. Open <code className={`px-2 py-1 rounded ${isDayMode ? 'bg-slate-200' : 'bg-slate-700'}`}>
-            /components/sections/SkillsSection.tsx
-          </code>
-        </p>
-        <p className="text-sm mt-2">
-          2. Find the <code className={`px-2 py-1 rounded ${isDayMode ? 'bg-slate-200' : 'bg-slate-700'}`}>
-            skillCategories
-          </code> array
-        </p>
-        <p className="text-sm mt-2">
-          3. Replace the placeholder skills with your actual tech stack
-        </p>
-        <p className="text-sm mt-2">
-          4. You can add new categories or remove existing ones as needed
-        </p>
-        <p className="text-sm mt-2">
-          5. Each skill automatically gets a pearl icon that pulses!
-        </p>
-      </motion.div>
     </div>
   );
 }

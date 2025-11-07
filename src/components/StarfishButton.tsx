@@ -5,14 +5,12 @@ interface StarfishButtonProps {
   onClick: () => void;
   isDayMode: boolean;
   position?: 'top-left' | 'top-right';
-  label?: string;
 }
 
 export function StarfishButton({ 
   onClick, 
   isDayMode, 
   position = 'top-left',
-  label = 'Return'
 }: StarfishButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -161,7 +159,7 @@ export function StarfishButton({
             : 'bg-slate-900/90 text-cyan-100'
         } backdrop-blur-sm shadow-lg`}
       >
-        {label}
+  {'return'}
       </motion.div>
     </motion.button>
   );

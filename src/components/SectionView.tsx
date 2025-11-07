@@ -196,7 +196,6 @@ export function SectionView({ section, onReturn }: SectionViewProps) {
         onClick={onReturn}
         isDayMode={false}
         position="top-left"
-        label="Return to Ocean"
       />
 
       {/* Content Container */}

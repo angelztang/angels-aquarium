@@ -48,14 +48,16 @@ export function AboutSection({ isDayMode }: AboutSectionProps) {
             {/* TODO: BIO_TEXT_HERE */}
             {/* Replace the content below with your personal bio */}
             <p>
-              I'm a passionate software engineer who loves building elegant solutions to complex problems. 
-              With a strong foundation in full-stack development, I enjoy creating applications that are 
-              both beautiful and functional.
+              I'm a passionate software engineer who thrives on building elegant solutions to complex problems. 
+              With a strong foundation in full-stack development and immersive/AR technologies, 
+              I enjoy creating applications that are both functional and meaningful.
             </p>
             <p>
-              My journey in tech started with curiosity and has evolved into a deep passion for creating 
-              meaningful digital experiences. I believe in writing clean, maintainable code and continuously 
-              learning new technologies.
+              My journey in tech started with curiosity about how humans interact with technology, 
+              and it has grown into a passion for combining computer science and cognitive science 
+              to design tools that improve people's lives. I am particularly interested in exploring 
+              AI-driven mental health and therapy applications, leveraging technology to make support
+              more accessible and effective.
             </p>
           </div>
         </div>
@@ -72,20 +74,16 @@ export function AboutSection({ isDayMode }: AboutSectionProps) {
             {/* TODO: ADD_YOUR_INTERESTS_HERE */}
             {/* Customize this list with your actual interests */}
             <p>
-              <span className={isDayMode ? 'text-cyan-600' : 'text-cyan-400'}>Design:</span> Creating 
-              intuitive user interfaces and delightful user experiences
+              <span className={isDayMode ? 'text-cyan-600' : 'text-cyan-400'}>Immersive Tech & AR:</span> Developing interactive experiences and debugging complex spatial systems
             </p>
             <p>
-              <span className={isDayMode ? 'text-cyan-600' : 'text-cyan-400'}>Innovation:</span> Exploring 
-              cutting-edge technologies and experimenting with new frameworks
+              <span className={isDayMode ? 'text-cyan-600' : 'text-cyan-400'}>AI & Human Behavior:</span> Exploring AI applications that support mental health, learning, and cognition
             </p>
             <p>
-              <span className={isDayMode ? 'text-cyan-600' : 'text-cyan-400'}>Ocean Life:</span> Marine 
-              biology, scuba diving, and ocean conservation
+              <span className={isDayMode ? 'text-cyan-600' : 'text-cyan-400'}>Learning & Growing:</span> Reading research, building projects, and participating in hackathons
             </p>
             <p>
-              <span className={isDayMode ? 'text-cyan-600' : 'text-cyan-400'}>Learning:</span> Reading 
-              tech blogs, taking online courses, and attending hackathons
+              <span className={isDayMode ? 'text-cyan-600' : 'text-cyan-400'}>Ocean Life:</span> Specifically jellyfish!
             </p>
           </div>
         </div>
@@ -102,8 +100,8 @@ export function AboutSection({ isDayMode }: AboutSectionProps) {
             {/* TODO: ADD_CURRENT_FOCUS_HERE */}
             {/* Update with what you're currently learning or working on */}
             <p>
-              Right now, I'm diving deep into advanced React patterns, exploring Web3 technologies, 
-              and building projects with AI integration. Always excited to collaborate on innovative projects!
+              Building on the Nonmonotonic Plasticity Hypothesis (Ritvo, Turk-Browne, & Norman, 2019), we propose that REM facilitates neural differentiation—the weakening of connections between moderately coactivated, competing memories—to resolve interference remaining after wakeful learning.
+To study this, I am applying EEG-based decoding and deep-learning classification to detect spontaneous, content-specific memory reactivation during REM sleep, distinguishing between associations like animal–scene versus animal–object. By training classifiers to identify these reactivation patterns, we can predict how REM sleep contributes to neural differentiation and post-sleep behavioral performance.
             </p>
           </div>
         </div>
