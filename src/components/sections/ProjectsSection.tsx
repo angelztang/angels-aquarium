@@ -11,37 +11,37 @@ export function ProjectsSection({ isDayMode }: ProjectsSectionProps) {
   const projects = [
     {
       id: 1,
-      name: "Project Name 1", // TODO: PASTE_PROJECT_NAME_HERE
-      techStack: ["React", "TypeScript", "Tailwind"], // TODO: PASTE_TECH_STACK_HERE
-      description: "A brief description of what this project does and the problems it solves. Keep it concise but informative.", // TODO: PASTE_SHORT_DESCRIPTION_HERE
-      githubLink: "https://github.com/yourusername/project1", // TODO: PASTE_GITHUB_LINK_HERE
-      liveLink: "https://project1.com", // TODO: PASTE_LIVE_DEMO_LINK_HERE (optional)
+      name: "VPS Debug App", // TODO: PASTE_PROJECT_NAME_HERE
+      techStack: ["Unity (C#)", "Lightship AR SDK", "ARDK/VPS"], // TODO: PASTE_TECH_STACK_HERE
+      description: "Developed a comprehensive Visual Positioning System (VPS) debugging and analysis toolkit for Lightship AR applications. This Unity-based diagnostic tool provides both real-time monitoring and post-session analysis of VPS performance.", // TODO: PASTE_SHORT_DESCRIPTION_HERE
+      githubLink: "", // TODO: PASTE_GITHUB_LINK_HERE
+      liveLink: "", // TODO: PASTE_LIVE_DEMO_LINK_HERE (optional)
       color: "#FF6B9D",
     },
     {
       id: 2,
-      name: "Project Name 2", // TODO: PASTE_PROJECT_NAME_HERE
-      techStack: ["Next.js", "Node.js", "MongoDB"], // TODO: PASTE_TECH_STACK_HERE
-      description: "Another exciting project showcasing your skills. Highlight the unique features or challenges you overcame.", // TODO: PASTE_SHORT_DESCRIPTION_HERE
-      githubLink: "https://github.com/yourusername/project2", // TODO: PASTE_GITHUB_LINK_HERE
-      liveLink: "https://project2.com", // TODO: PASTE_LIVE_DEMO_LINK_HERE (optional)
+      name: "Soundscapes", // TODO: PASTE_PROJECT_NAME_HERE
+      techStack: ["Swift / Xcode for iOS Development", "JavaScript / Node.js for Backend Server", "Python / Flask for Generative AI Agents and Connectors", "Meta Wearables SDK"], // TODO: PASTE_TECH_STACK_HERE
+      description: "Developed a location-aware soundscape generation system that integrates real-time geospatial intelligence with AI-powered audio generation. The system uses GPS coordinates to understand environmental context and generate appropriate ambient soundscapes.",
+      githubLink: "", // TODO: PASTE_GITHUB_LINK_HERE
+      liveLink: "https://drive.google.com/file/d/1Zbb1TDOMzGEhBLDXkMOiJ5ySklgAW7uL/view?usp=sharing", // TODO: PASTE_LIVE_DEMO_LINK_HERE (optional)
       color: "#4ECDC4",
     },
     {
       id: 3,
-      name: "Project Name 3", // TODO: PASTE_PROJECT_NAME_HERE
-      techStack: ["Python", "Django", "PostgreSQL"], // TODO: PASTE_TECH_STACK_HERE
-      description: "Describe what makes this project special. What did you learn? What impact did it have?", // TODO: PASTE_SHORT_DESCRIPTION_HERE
+      name: "TigerPop", // TODO: PASTE_PROJECT_NAME_HERE
+      techStack: ["Flask (Python)", "PostgreSQL + SQLAlchemy", "JWT/CAS auth", "Cloudinary", "REST APIs", "React + TypeScript", "Tailwind CSS", "Vercel"], // TODO: PASTE_TECH_STACK_HERE
+      description: "Built a full-stack marketplace platform for Princeton students, featuring secure CAS/JWT authentication, real-time auctions, advanced search/filtering, and cloud-based media management. Designed with a Flask + PostgreSQL backend and a modern React/TypeScript frontend, deployed on Heroku with production-grade security, performance optimization, and modular architecture.", // TODO: PASTE_SHORT_DESCRIPTION_HERE
       githubLink: "https://github.com/yourusername/project3", // TODO: PASTE_GITHUB_LINK_HERE
-      liveLink: "", // TODO: PASTE_LIVE_DEMO_LINK_HERE (optional - leave empty if no live demo)
+      liveLink: "m", // TODO: PASTE_LIVE_DEMO_LINK_HERE (optional - leave empty if no live demo)
       color: "#FFE66D",
     },
     {
       id: 4,
-      name: "Project Name 4", // TODO: PASTE_PROJECT_NAME_HERE
-      techStack: ["Vue.js", "Firebase", "TailwindCSS"], // TODO: PASTE_TECH_STACK_HERE
-      description: "Share the story behind this project. What inspired you? What challenges did you face?", // TODO: PASTE_SHORT_DESCRIPTION_HERE
-      githubLink: "https://github.com/yourusername/project4", // TODO: PASTE_GITHUB_LINK_HERE
+      name: "International Girls Academy Website", // TODO: PASTE_PROJECT_NAME_HERE
+      techStack: ["Next.js 15 + React 19 (TypeScript)", "Tailwind CSS", "Supabase", "Python FastAPI (SQLAlchemy, SQLite, Passlib, Uvicorn)", "Vercel"], // TODO: PASTE_TECH_STACK_HERE
+      description: "A community/education platform that connects students, volunteers, and organizers — users can sign up, manage profiles, join events and meetings, and progress through modules. Organizers create and manage events/meetings, while the app provides dashboards, comment/chat threads, donations, and a small API-backed backend for user registration and persistence.", // TODO: PASTE_SHORT_DESCRIPTION_HERE
+      githubLink: "https://github.com/angelztang/internationalgirlsacademy", // TODO: PASTE_GITHUB_LINK_HERE
       liveLink: "https://project4.com", // TODO: PASTE_LIVE_DEMO_LINK_HERE (optional)
       color: "#A8E6CF",
     },
@@ -65,7 +65,7 @@ export function ProjectsSection({ isDayMode }: ProjectsSectionProps) {
             : 'bg-gradient-to-r from-cyan-500 to-blue-600'
         }`} />
         <p className={`mt-4 ${isDayMode ? 'text-slate-600' : 'text-cyan-300/80'}`}>
-          Hover over each project to see the bioluminescent glow ✨
+          Hover over each project to see the bioluminescent glow
         </p>
       </motion.div>
 

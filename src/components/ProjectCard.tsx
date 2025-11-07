@@ -85,21 +85,23 @@ export function ProjectCard({ project, index, isDayMode }: ProjectCardProps) {
 
         {/* Links */}
         <div className="flex gap-3">
-          <motion.a
-            href={project.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
-              isDayMode
-                ? 'bg-slate-800 text-white hover:bg-slate-700'
-                : 'bg-cyan-600 text-white hover:bg-cyan-500'
-            }`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Github className="w-4 h-4" />
-            <span>GitHub</span>
-          </motion.a>
+          {project.githubLink ? (
+            <motion.a
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
+                isDayMode
+                  ? 'bg-slate-800 text-white hover:bg-slate-700'
+                  : 'bg-cyan-600 text-white hover:bg-cyan-500'
+              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Github className="w-4 h-4" />
+              <span>GitHub</span>
+            </motion.a>
+          ) : null}
 
           {project.liveLink && (
             <motion.a

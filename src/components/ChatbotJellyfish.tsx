@@ -179,7 +179,8 @@ export default function ChatbotJellyfish() {
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
-          className="fixed bottom-28 right-6 w-80 max-w-[90vw] z-50 rounded-xl bg-slate-900/90 text-cyan-100 backdrop-blur-md shadow-2xl overflow-hidden"
+          // move the chat closer to the viewport bottom and raise z-index in case it's hidden
+          className="fixed bottom-6 right-6 w-80 max-w-[90vw] z-[9999] rounded-xl bg-slate-900/90 text-cyan-100 backdrop-blur-md shadow-2xl overflow-hidden"
         >
           <div className="px-4 py-2 border-b border-slate-800 flex items-center justify-between">
             <div className="text-sm font-semibold">Jellybot</div>
@@ -219,8 +220,10 @@ export default function ChatbotJellyfish() {
       {/* Floating jellyfish trigger (bottom-right) - reuse in-tank RealisticSeaCreature */}
       <div
         ref={triggerRef}
-        className="fixed bottom-70 right-8 z-50 w-32 h-32 pointer-events-auto"
+        // use a valid Tailwind bottom spacing so the trigger is visible and clickable
+        className="fixed bottom-8 right-6 z-50 w-32 h-32 pointer-events-auto"
         style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        onClick={() => setOpen((s) => !s)}
       >
         <RealisticSeaCreature
           type="jellyfish"
@@ -230,12 +233,10 @@ export default function ChatbotJellyfish() {
           delay={0}
           size="small"
           interactive={true}
-          onClick={() => {
-            // debug: ensure clicks reach here
-            // eslint-disable-next-line no-console
-            console.log('Jellybot trigger clicked');
-            setOpen((s) => !s);
-          }}
+          /* Do not pass an onClick to the creature itself — it invokes the provided
+             handler with a 300ms delay. The wrapper div handles clicks immediately
+             (onClick on the wrapper toggles the chat) so we avoid the open->close
+             toggle caused by the delayed call. */
         />
       </div>
     </div>
