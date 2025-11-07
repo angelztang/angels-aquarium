@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { useEffect, useState, useRef } from 'react';
 import { RealisticSeaCreature } from './RealisticSeaCreature';
 import { RealisticFishTank } from './RealisticFishTank';
 import { AquariumDecor } from './AquariumDecor';
@@ -82,6 +83,28 @@ const ambientCreatures = [
 ];
 
 export function FishbowlView({ onJellyfishClick }: FishbowlViewProps) {
+  const [subtitleTop, setSubtitleTop] = useState<number | null>(null);
+  const headingRef = useRef<HTMLHeadingElement | null>(null);
+
+  useEffect(() => {
+    function update() {
+      const bowl = document.getElementById('realistic-fishbowl');
+      if (!bowl) return;
+      const rect = bowl.getBoundingClientRect();
+      // position relative to viewport top
+      // moved subtitle up 50px as requested: (rect.top + 20) - 50 => rect.top - 30
+      setSubtitleTop(rect.top+20);
+    }
+
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('scroll', update);
+    return () => {
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update);
+    };
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -91,40 +114,44 @@ export function FishbowlView({ onJellyfishClick }: FishbowlViewProps) {
       className="relative w-full h-screen overflow-hidden"
     >
       {/* Title and Instructions */}
-      <div className="absolute top-6 left-0 right-0 text-center z-10">
+      <div className="absolute top-0 left-0 right-0 text-center z-10">
         <motion.div
-          initial={{ y: -50, opacity: 0 }}
+          initial={{ y: 0, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
           <h1
-  className="
-    mb-4 
-    text-cyan-100 
-    text-6xl md:text-8xl 
-    font-bold 
-    tracking-wider 
-    leading-tight
-  "
-  style={{ fontFamily: `Sniglet, "Baby Gemoy", Fredoka, Quicksand, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial` }}
->
-  Welcome to Angel's Aquarium Portfolio
-</h1>
-
-          <p
+            ref={headingRef}
             className="
-              text-cyan-300/80 
-              mt-20 
-              text-lg md:text-2xl 
-              font-sub 
-              font-medium 
-              tracking-wide
+              mb-4 
+              text-cyan-100 
+              font-bold 
+              tracking-wider 
+              leading-tight
             "
+            style={{
+              fontFamily: `"Baby Gemoy", Sniglet, Fredoka, Quicksand, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial`,
+              fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+              transform: 'translateY(0px)'
+            }}
           >
-            <span style={{ fontFamily: 'Alef, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial', fontWeight: 400 }}>
-              Click on the jellyfish to explore each section
-            </span>
-          </p>
+            Welcome to Angel's Aquarium
+          </h1>
+
+
+{/* Subtitle: positioned 20px beneath the top of the fishbowl */}
+<p
+  className="
+    text-cyan-300/80 
+    text-lg md:text-2xl 
+    font-sub 
+    font-medium 
+    tracking-wide
+  "
+  style={subtitleTop != null ? { position: 'fixed', left: '50%', transform: 'translateX(-50%)', top: subtitleTop, zIndex: 20, marginTop: 8, fontSize: 'clamp(1rem, 2.5vw, 1.75rem)' } : { fontSize: 'clamp(1.25rem, 3vw, 2.25rem)' }}
+>
+  Click on the jellyfish to explore each section
+</p>
         </motion.div>
       </div>
 

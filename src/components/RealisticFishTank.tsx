@@ -7,13 +7,15 @@ interface RealisticFishTankProps {
 
 export function RealisticFishTank({ children }: RealisticFishTankProps) {
   return (
-    <div className="absolute inset-0 flex items-center justify-center p-8">
+  // align the tank to the top so the heading stays in the blue space above it
+  <div className="absolute inset-0 flex items-start justify-center p-8 pt-6" style={{ transform: 'translateY(100px)' }}>
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
+        id="realistic-fishbowl"
         className="relative w-full max-w-6xl"
-        style={{ aspectRatio: '16/10' }}
+        style={{ aspectRatio: '16/10', maxHeight: 'calc(100vh - 200px)' }}
       >
         {/* Tank Stand/Base */}
         <div className="absolute -bottom-6 left-0 right-0 h-8 bg-gradient-to-b from-gray-800 via-gray-900 to-black rounded-b-lg opacity-80" />
