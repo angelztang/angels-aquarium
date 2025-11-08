@@ -28,7 +28,8 @@ export function ProjectCard({ project, index, isDayMode }: ProjectCardProps) {
       transition={{ duration: 0.6, delay: index * 0.15 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="relative group"
+      className="relative group inline-block w-full mb-6"
+      style={{ breakInside: 'avoid', WebkitColumnBreakInside: 'avoid', pageBreakInside: 'avoid' } as any}
     >
       {/* Bioluminescent Glow Effect */}
       <motion.div

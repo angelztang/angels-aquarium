@@ -172,72 +172,59 @@ export default function ChatbotJellyfish() {
 
   const content = (
     <div>
-      {/* Chat window */}
+      {/* Chat window (simplified rectangle for debugging) */}
       {open && (
         <motion.div
           ref={chatRef}
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          initial={{ opacity: 0, scale: 0.98, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 10 }}
-          // move the chat closer to the viewport bottom and raise z-index in case it's hidden
-          className="fixed bottom-6 right-6 w-80 max-w-[90vw] z-[9999] rounded-xl bg-slate-900/90 text-cyan-100 backdrop-blur-md shadow-2xl overflow-hidden"
+          exit={{ opacity: 0, scale: 0.98, y: 6 }}
+          className="fixed bottom-6 right-6 w-80 h-64 z-[9999] rounded-lg bg-slate-800 text-white shadow-2xl overflow-hidden flex flex-col"
         >
-          <div className="px-4 py-2 border-b border-slate-800 flex items-center justify-between">
-            <div className="text-sm font-semibold">Jellybot</div>
+          <div className="px-4 py-2 border-b border-slate-700 flex items-center justify-between">
+            <div className="text-sm font-semibold">Jellybot (debug)</div>
+            <button onClick={() => setOpen(false)} className="text-sm text-slate-300">Close</button>
           </div>
-          <div className="p-3 h-56 overflow-auto" style={{ scrollbarGutter: 'stable' }}>
-            {messages.map((m) => (
-              <div key={m.id} className={`mb-3 ${m.from === 'user' ? 'text-right' : 'text-left'}`}>
-                <div className={`${m.from === 'user' ? 'inline-block bg-cyan-600 text-white' : 'inline-block bg-slate-800 text-cyan-100'} px-3 py-2 rounded-md max-w-full`}>{m.text}</div>
-              </div>
-            ))}
-
-            {/* typing indicator */}
-            {isTyping && (
-              <div className="mb-3 text-left">
-                <div className="inline-block bg-slate-800 text-cyan-100 px-3 py-2 rounded-md max-w-full">
-                  <span className="animate-pulse">…</span>
-                </div>
-              </div>
-            )}
-
-            <div ref={endRef} />
-          </div>
-          <div className="p-3 border-t border-slate-800 flex gap-2">
-            <input
-              ref={inputRef}
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-              onKeyDown={(e) => { if (e.key === 'Enter') send(); }}
-              className="flex-1 rounded-md px-3 py-2 bg-slate-800 text-white outline-none"
-              placeholder="Say hi..."
-            />
-            <button onClick={send} className="px-3 py-2 bg-cyan-500 rounded-md text-white">Send</button>
+          <div className="p-4 flex-1">
+            <p className="text-sm text-slate-200">This is a simplified chat rectangle used for debugging.
+              Click the jellyfish button to toggle this box.</p>
           </div>
         </motion.div>
       )}
 
-      {/* Floating jellyfish trigger (bottom-right) - reuse in-tank RealisticSeaCreature */}
+      {/* Simple floating jellyfish trigger (bottom-right) — plain button for reliable clicks */}
       <div
         ref={triggerRef}
-        // use a valid Tailwind bottom spacing so the trigger is visible and clickable
         className="fixed bottom-8 right-6 z-50 w-32 h-32 pointer-events-auto"
-        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', outline: '2px dashed rgba(125,211,252,0.4)', borderRadius: 12 }}
         onClick={() => setOpen((s) => !s)}
       >
+        {/* Render the jellyfish SVG as the visible trigger but do NOT pass an onClick
+            to the creature itself — the wrapper handles clicks immediately to avoid
+            the delayed callback inside RealisticSeaCreature that caused open->close toggles. */}
         <RealisticSeaCreature
           type="jellyfish"
           color="#7DD3FC"
-          // place the SVG a lot higher in its box so it visually sits well above the bottom edge
-          position={{ x: '75%', y: '-50%' }}
+          position={{ x: '50%', y: '50%' }}
           delay={0}
           size="small"
           interactive={true}
-          /* Do not pass an onClick to the creature itself — it invokes the provided
-             handler with a 300ms delay. The wrapper div handles clicks immediately
-             (onClick on the wrapper toggles the chat) so we avoid the open->close
-             toggle caused by the delayed call. */
         />
+
+        {/* Fallback visible inline SVG jellyfish in case the RealisticSeaCreature
+            does not render correctly. This is pointer-events none so the wrapper
+            still receives clicks; remove once the full creature is rendering. */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <ellipse cx="24" cy="16" rx="12" ry="8" fill="#7DD3FC" opacity="0.95" />
+            <ellipse cx="24" cy="14" rx="6" ry="3" fill="white" opacity="0.6" />
+            <g stroke="#7DD3FC" strokeWidth="1.5" strokeLinecap="round" opacity="0.9">
+              <path d="M18 26 C18 30, 16 34, 14 38" />
+              <path d="M22 26 C22 30, 22 34, 22 38" />
+              <path d="M26 26 C26 30, 28 34, 30 38" />
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
   );

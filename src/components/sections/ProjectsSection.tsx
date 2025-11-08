@@ -32,8 +32,8 @@ export function ProjectsSection({ isDayMode }: ProjectsSectionProps) {
       name: "TigerPop", // TODO: PASTE_PROJECT_NAME_HERE
       techStack: ["Flask (Python)", "PostgreSQL + SQLAlchemy", "JWT/CAS auth", "Cloudinary", "REST APIs", "React + TypeScript", "Tailwind CSS", "Vercel"], // TODO: PASTE_TECH_STACK_HERE
       description: "Built a full-stack marketplace platform for Princeton students, featuring secure CAS/JWT authentication, real-time auctions, advanced search/filtering, and cloud-based media management. Designed with a Flask + PostgreSQL backend and a modern React/TypeScript frontend, deployed on Heroku with production-grade security, performance optimization, and modular architecture.", // TODO: PASTE_SHORT_DESCRIPTION_HERE
-      githubLink: "https://github.com/yourusername/project3", // TODO: PASTE_GITHUB_LINK_HERE
-      liveLink: "m", // TODO: PASTE_LIVE_DEMO_LINK_HERE (optional - leave empty if no live demo)
+      githubLink: "https://github.com/angelztang/tigerpop.github.io", // TODO: PASTE_GITHUB_LINK_HERE
+      liveLink: "", // TODO: PASTE_LIVE_DEMO_LINK_HERE (optional - leave empty if no live demo)
       color: "#FFE66D",
     },
     {
@@ -42,7 +42,16 @@ export function ProjectsSection({ isDayMode }: ProjectsSectionProps) {
       techStack: ["Next.js 15 + React 19 (TypeScript)", "Tailwind CSS", "Supabase", "Python FastAPI (SQLAlchemy, SQLite, Passlib, Uvicorn)", "Vercel"], // TODO: PASTE_TECH_STACK_HERE
       description: "A community/education platform that connects students, volunteers, and organizers — users can sign up, manage profiles, join events and meetings, and progress through modules. Organizers create and manage events/meetings, while the app provides dashboards, comment/chat threads, donations, and a small API-backed backend for user registration and persistence.", // TODO: PASTE_SHORT_DESCRIPTION_HERE
       githubLink: "https://github.com/angelztang/internationalgirlsacademy", // TODO: PASTE_GITHUB_LINK_HERE
-      liveLink: "https://project4.com", // TODO: PASTE_LIVE_DEMO_LINK_HERE (optional)
+      liveLink: "", // TODO: PASTE_LIVE_DEMO_LINK_HERE (optional)
+      color: "#A8E6CF",
+    },
+    {
+      id: 5,
+      name: "HackPrinceton Judging App", // TODO: PASTE_PROJECT_NAME_HERE
+      techStack: ["Python/Flask REST API with PostgreSQL", "React frontend"], // TODO: PASTE_TECH_STACK_HERE
+      description: "This project is a small, production-capable web application used for collecting and viewing hackathon judging scores. It's built as a Python/Flask backend that serves a single-page React frontend. The app demonstrates full-stack skills in building REST APIs, integrating a relational database, and packaging a static frontend for deployment.", // TODO: PASTE_SHORT_DESCRIPTION_HERE
+      githubLink: "https://github.com/angelztang/hackprincetonjudging", // TODO: PASTE_GITHUB_LINK_HERE
+      liveLink: "", // TODO: PASTE_LIVE_DEMO_LINK_HERE (optional)
       color: "#A8E6CF",
     },
   ];
@@ -69,8 +78,8 @@ export function ProjectsSection({ isDayMode }: ProjectsSectionProps) {
         </p>
       </motion.div>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  {/* Projects Masonry-style columns (force two columns) so cards stagger naturally with equal vertical gaps */}
+  <div style={{ columnCount: 2, columnGap: '1.5rem' }}>
         {projects.map((project, index) => (
           <ProjectCard
             key={project.id}
